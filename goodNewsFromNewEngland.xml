@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Good News From New England</title>
+         </titleStmt>
+         <publicationStmt>
+            <p>Publication Information for 1624 edition goes here</p>
+         </publicationStmt>
+         <sourceDesc>
+            <p>Plain text courtest of plymoth bay colonly archive project</p>
+         </sourceDesc>
+      </fileDesc>
+  </teiHeader>
+  <text>
+     <!-- The following encoding reflects pagination from "Kelly Wisecup" Edition -->
+     
+     <!-- The <hi> tag is used to catch anything worth returning to -->
+     
+     <!-- Here are some <hi> tags from this text that merit further consideration: 
+        
+     "35 persons" should we mark up exact numbers of colonial arrivals?
+     Should we caputre adjectives such as "savage" and "heathenish" as <properadjectives> when they refer to indigenous persons?
+     "Arrows" and other objects that act as signs or signifiers - is this worth marking?
+     "Master" How should we indicate master/slave relationships? Should there be a list of master slave relationships in narratives
+     "Sachim" and other idigenous terms that appear in english...should these be marked with <foreign> or <distinct> tags? 
+     "orders" should we mark up commands given by both indigneous and colonial "commanders"?  
+     "drowning" "slain" " suddenly died" etc. Are these moments worth noting? why?
+     Should "god" be noted as a <persName>? why or why not?
+     Should "Dominions" be marked? Should we specify imperial and indigenous claims to land? 
+     Should "Scarcities" "supplies" and "famine be marked?
+     Are common phrases such as "expecteth fruit before the tree be grown" worth marking up? 
+     What is might be worth marking up in this text that can help us think about other narratives of contact?
+     -->
+      <body>
+            <p>
+            <hi>TO
+            ALL WELL-WILLERS
+            AND FURTHERERS OF 
+            Plantations in <placeName>New-England</placeName>: especially 
+            to such as ever have or desire to assist the 
+            people of <placeName>Plymoputh</placeName> in their just pro- 
+            ceedings, Grace, and Peace, be 
+            multiplied.</hi>
+            Right Honorable and Worshipful Gentlemen, or whatsoever:
+            Since it hath pleased <persName>God</persName> to stir you up to be instruments of his glory, in so honorable an 
+            enterprise as the enlarging of his <name ref="king">Majesty’s</name> <hi>Dominions</hi>, by planting his loyal subjects in so healthful and 
+            hopeful a country as New England is; where the Church of <persName>God</persName> being seated in sincerity, there is no less 
+            hope of converting the <name>Heathen</name> of <name ref="Indigenous">their</name> evil ways, and converting them to the true knowledge and worship 
+            of the living <persName>God</persName>, and so consequently the salvation of their souls by the merits of <persName>Jesus Christ</persName>, then 
+            elsewhere though it be much talked on, and lightly or lamely prosecuted.  I therefore think it but my duty to 
+            offer the view of our proceedings to your worthy considerations, having to that end composed them 
+            together thus briefly as you see; wherein to your great encouragement, you may behold the good 
+            providence of <persName>God</persName> working with you in our preservation from so many dangerous plots and treacheries, as 
+            have been intended against us; as also in giving his blessing so powerfully upon the weak means we had, 
+            enabling us with health and ability beyond expectation, in our greatest <hi>scarcities</hi>, and possessing the hearts 
+            of the <name>savages</name> with astonishment and fear of us, whereas if <persName>God</persName> had let them loose, they might easily have 
+            swallowed us up, scarce being an handful in comparison of those forces they might have gathered together 
+            against us, which now by <persName>God’s</persName> blessing will be more hard and difficult, in regard our number of men is 
+            increased, our town better fortified, and our store better victualed.  Blessed therefore be his name, that hath 
+            done so great things for us, and hath wrought so great a change amongst us. 
+            Accept I pray you my weak endeavors, pardon my unskillfulness, and bear with my plainness in 
+            the things I have handled.  Be not discouraged by our former necessities, but rather encouraged with us, 
+            hoping that as <persName>God</persName> hath wrought with us in our beginning of this worthy Work, undertaken in his name and 
+            fear, so he will by us accomplish the same to his glory and our comfort, if we neglect not the means.  I 
+            confess it hath not been much less chargeable to some of you, then hard and difficult to us, that have 
+            endured the brunt of the barrel, and yet small profits returned; only by <persName>God’s</persName> mercy we are safely seated, 
+            housed, and fortified, by which means a great step is made unto gain, and a more direct course taken for the 
+            same, then if at first we had rashly and covetously fallen upon it. 
+            Indeed, three things are the overthrow and bane (as I may term it) of <name ref="plantation">plantations</name>: 
+            1.  The vain expectation of present profit, which too too commonly taketh a principal seat in the 
+            heart and affections though <persName>God’s</persName> glory, etc., is preferred before it in the mouth with protestation.
+            2.  Ambition in their <name>Governors</name> and <name>Commanders</name>, seeking only to make themselves great, and 
+            <name ref="slave">slaves</name> of all that are under them, to maintain a transitory base honor in themselves, which <persName>God</persName> oft 
+            punisheth with contempt. 
+            3.  The carelessness of those that send over <hi>supplies</hi> of men unto them, not caring how they be 
+            qualified: so that oft times they are rather the Image of Men endued with bestial, yea, diabolical affections, 
+            then the Image of <persName>God</persName>, endured with reason, understanding, and holiness.  I pray <persName>God</persName> I speak not these 
+            things experimentally, by way of complaint of our own condition, but having great cause on the contrary 
+            part to be thankful to <persName>God</persName> for his mercies towards us: but rather, if there be any too desirous of gain, to 
+            entreat them to moderate their affections, and consider that no man <hi>expecteth fruit before the tree be grown</hi>; 
+            advising all men, that as they tender their own welfare so to make choice of such to maintain and govern 
+            their affairs, as are approved not to be seekers of themselves, but the common good of all for whom they 
+            are <hi>employed</hi>; and beseeching such as have the care of <hi>transporting</hi> men for the <hi>supply</hi> and <hi>furnishing</hi> of 
+            <name ref="plantation">plantations</name>, to be truly careful in sending such as may further and not hinder so good an action.  There is no 
+            godly honest man, but will be helpful in his kind, and adorn his profession with an upright life and 
+            conversation, which Doctrine of manners ought first to be preached by giving good example to the poor 
+            <hi>savage</hi> <name>heathens</name> amongst whom they live.  On the contrary part, what great offense hath been given by 
+            many profane men who being but seeming <orgName>Christians</orgName>, have made <persName>Christ</persName> and <orgName>Christianity</orgName> stink in the 
+            nostrils of the poor <name>infidels</name>, and so laid a stumbling block before them: but we be to them by whom such 
+            offenses come. 
+            <lb/>
+            These things I offer to your <orgName>Christian</orgName> considerations, beseeching you to make a good construction 
+            of my simple meaning, and take in good part this ensuing relation, dedicating myself and it evermore unto 
+            your service: beseeching <persName>God</persName> to crown our <orgName>Christian</orgName> and faithful endeavors with his blessings temporal and 
+            eternal. 
+            Yours in this service, ever 
+            to be <hi>commanded</hi>: 
+            <persName ref="narrator">E.W.</persName></p>
+         
+         <!-- This is where Chpater two begins. I have skipped the introduction to the reader so that I can get right to the narrative
+         It is also here where I begin capturing rendtional information -->
+         
+         <p> <lb/>The Good Ship called the <name rend="italics">Fortune</name>, which in the Month of <time rend="italics">November 1621</time>. 
+            <lb/>(blessed be <persName>God</persName>) brought us a new supply of <hi>35 persons</hi>, was not long 
+            <lb/>departed <placeName ref="New England">our Coast</placeName>, ere the Great people of<placeName rend="italics">Nanohigganset</placeName>, which are re-
+            <lb/>ported to be many thousands strong, began to breath forth many <hi>threats</hi> 
+            <lb/>against us, notwithstanding their desired and obtained peace with us in 
+            <lb/>the foregoing summer. Insomuch as the common talk of our <orgName ref="Massachusetts Indigenous">neighbor 
+            <lb/><name rend="italics">Indians</name></orgName> on all sides was of the preparation they made to come against 
+            <lb/>us. In reason a man would think they should have now more cause to 
+            <lb/>fear us than before our <hi>supply</hi> came: but though none of them were pres-
+            <lb/>ent, yet understanding by others that they neither brought <hi>Arms</hi> nor 
+            <lb/>other <hi>provisions</hi> with them, but wholly relied on us, it occasioned them 
+            <pb/>
+            to sleight and brave us with so many <hi>threats</hi> as they did. At length came 
+            <lb/>one of them to us, who was sent by <persName rend="italics">Conanacus</persName> their chief <name rend="italics"><hi>Sachem</hi></name> or King, 
+            <lb/>accompanied with one <persName rend="italics">Tokamahamon</persName>, a friendly <orgName ref ="Community" rend="italics">Indian</orgName>. This messenger 
+            <lb/>inquired for <persName ref="Squanto" rend="italics">Tisquantum</persName> our Interpreter, who not being at home seemed 
+            <lb/>rather to be glad than sorry, and leaving for him a bundle of new <hi>arrows</hi> 
+            <lb/>lapped in a rattle Snakes skin, desired to depart with all expedition. But 
+            <lb/>our <persName ref="Gov">Governors</persName> not knowing what to make of this strange carriage, 
+            <lb/>and comparing it with that we had formerly heard, committed him to the 
+            <lb/>custody of <persName>Captain .<name rend="italics">Standish</name></persName>, hoping now to know some certainty of 
+            <lb/>that we so often heard, either by his own relation to us, or to <persName rend="italics">Tisquantum</persName> 
+            <lb/>at his return, desiring my self, having special familiarity with the other 
+            <lb/>fore-named <persName ref="X" rend="italics">Indian</persName>, to see if I could learn any thing From him, whose 
+            <lb/>answer was sparingly to this effect; that he could not certainly tell, but 
+            <lb/>thought they were enemies to us. That night <persName>Captain <name rend="italics">Standish</name></persName> gave me 
+            <lb/>and another charge of him, and gave us <hi>order</hi> to use him kindly, and that 
+            <lb/>he should not want any thing he desired, and to take all occasions to talk 
+            <lb/>and inquire of the reasons of those reports we heard, and withal to 
+            <lb/>signify that upon his true relation he should be set of his owne freedom. 
+            <lb/>At first fear so possessed him, that he could scarce say anything: but in 
+            <lb/>the end became more familiar, and told us that the messenger which his 
+            <lb/><hi>Master</hi> sent in <time calendar="1622">Summer</time> to treat of peace, at his return persuaded him 
+            <lb/>rather to war; and to the end he might provoke him hereunto, (as ap-
+            <lb/>peared to him by our reports) detained many of the things were sent him 
+            <lb/>by our <persName ref="Gov." >Governor</persName>, scorning the meanness of them both in respect of what 
+            <lb/>himself had formerly sent, and also of the greatness of his own person; so 
+            <pb/>
+            that he much blamed the former <name ref="person">Messenger</name>, saying, that upon the knowledge 
+            <lb/>of <hi>his false carriage</hi>, it would cost him his life; but assured 
+            <lb/>us that upon his relation of our <hi>speech</hi> then with him to his <name>Master</name>, he 
+            <lb/>would be friends with us. Of this we informed the <name>Governor</name> and his 
+            <lb/>Assistant, and <persName>Captain <name rend="italics">Standish</name></persName>, who after consultation considered him 
+            <lb/>howsoever but in the state of a <name>messenger</name>, and it being as well against
+            <lb/><hi>the Law of Arms</hi> amongst them as us in <placeName>Europe</placeName>, <hi>to lay violent hands</hi> on 
+            <lb/>any such, set him at liberty, the <name>Governor</name> giving him order to certify his 
+            <lb/><name>Master</name> that he had heard of his large and many threatenings, at which 
+            <lb/>he was much offended, daring him in those respects to the utmost, if he 
+            <lb/>would not be reconciled to live peaceably as other his neighbors; manifest-
+            <lb/>ing withal (as ever) his desire of <hi>peace</hi>; but his fearless resolution, if he 
+            <lb/>could not so live amongst them. After which he caused <hi>meat</hi> to be offered 
+            <lb/>him, but he refused to <hi>eat</hi>, making all speed to return, and giving many 
+            <lb/>thanks for his <hi>liberty</hi>. But requesting the other <name>Indian</name> again to return, 
+            <lb/>the weather being violent, he <hi>used many words</hi> to persuade him to stay 
+            <lb/>longer, but could not. Whereupon he left him, and said he was with his 
+            <lb/>friends, and would not take a journey in such extremity.
+            <pb/>
+            <lb/>After this when <persName rend="italics">Tisquantum</persName> returned, and the arrows were delivered, 
+            <lb/>and the manner of the messengers carriage related, he signified to the Governor, that to 
+            <lb/>send the rattle Snakes skin in that manner, imported enmity, and that it was no better 
+            <lb/>than a challenge. Hereupon after some deliberation, the Governor stuffed the skin with 
+            <lb/>powder and shot, and sent it back returning no less defiance to Conanacus, assuring him 
+            <lb/>if he had shipping now present thereby to send his men to Narragansett (the place of his abode) 
+            <lb/>they should not need to come so far by land to us: yet withal strewing that they should never 
+            <lb/>come unwelcome or unlooked for. This message was sent by an Indian, and delivered in such sort, 
+            <lb/>as it was no small terror to this savage King, insomuch as he would not once touch the powder 
+            <lb/>and shot, or suffer it to stay in his house or Country. Whereupon the Messenger refusing it, 
+            <lb/>another took it up, and having been posted from place to place a long time, at length came back who again.
+            <pb/>
+            In the mean time, knowing our own weakness, notwithstanding our high words and lofty looks towards them, 
+            <lb/>and still lying open to all casualty, having as yet (under God) no other defense than our Arms, 
+            <lb/>we thought it most needful to impale our Town, which with all expedition we accomplished in the 
+            <lb/>month of February and some few days, taking in the top of the Hill under which our Town is seated, 
+            <lb/>making four bulwarks or jetties without the ordinary circuit of the pale, from whence we could 
+            <lb/>defend the whole Town: In three whereof are gates, and the fourth in time to be. This being done, 
+            <lb/>Captain Standish divided our strength into four squadrons or companies, appointing whom he thought 
+            <lb/>most fit to have command of each; And at a general Muster or Training, appointed each his place, 
+            <lb/>gave each his Company, giving them charge upon every alarm to resort to their Leaders to their 
+            <lb/>appointed place, and in his absence, to be commanded and directed by them. That done according to his 
+            <lb/>order, each drew his Company to his appointed place for defense, and there together discharged their 
+            <lb/>muskets. After which they brought their new Commanders to their houses, where again they graced them 
+            <lb/>with their shot, and so departed.
+            <pb/>
+            Fearing also lest the enemy at any time should take any advantage by firing our houses, Captain Standish 
+            <lb/>appointed a certain Company, that whensoever they saw or heard fire to be cried in the Town, should 
+            <lb/>only betake themselves to their Arms, and should enclose the house or place so endangered, and stand 
+            <lb/>aloof on their guard, with their backs towards the fire, to prevent treachery, if any were in that 
+            <lb/>kind intended. If the fire were in any of the houses of this guard, they were then freed from it, 
+            <lb/>but not otherwise, without special command.
+            <lb/>
+            Long before this time we promised the people of Massachusetts in the beginning of March to come unto them, 
+            <lb/>and trade for their Furs, which being then come, we began to make preparation for that voyage. 
+            <lb/>In the meantime, an Indian called Hobomok, who still lived in the Town, told us, that he feared 
+            <lb/>the Massachusetts or Massachuseucks (for they so called the people of that place) were joined in 
+            <lb/>confederacy with the Nanohigganneucks, or people of Narragansett, and that they therefore would 
+            <lb/>take this opportunity to cut off Captain Standish and his company abroad: but howsoever in the mean 
+            <lb/>time, it was to be feared that the Narragansetts would assault the Town at home, giving many reasons 
+            <lb/>for his jealousy, as also that Tisquantum was in the confederacy, who we should find would use many 
+            <lb/>persuasions to draw us from our shallops to the Indians houses for their better advantage. To confirm 
+            <lb/>this his jealousy he told us of many secret passages that passed between him and others, having their 
+            <lb/>meetings ordinarily abroad in the woods: but if at home howsoever he was excluded from their secrecy, 
+            <lb/>saying it was the manner of the Indians when they meant plainly to deal openly: but in this his practice 
+            <lb/>there was no show of honesty.
+            Hereupon the Governor, together with his Assistant and Captain Standish, called together such, as by them were 
+            <lb/>thought most meet for advice in so weighty a business, who after consideration hereof came to this resolution; 
+            <lb/>That as hitherto upon all occasions between them and us, we had ever manifested undaunted courage and resolution, 
+            <lb/>so it would not now stand with our safety to mew up our selves in our new-enclosed town, partly because our Store 
+            <lb/>was almost empty, and therefore must seek out for our daily food, without which we could not long subsist; 
+            <lb/>but especially for that thereby they would see us dismayed, and be encouraged to prosecute their malicious 
+            <lb/>purposes; with more eagerness than ever they intended: whereas on the contrary, by the blessing of God, 
+            <lb/>our fearless carriage might be a means to discourage and weaken their proceedings. And therefore thought 
+            <lb/>best to proceed in our trading voyage, making this use of that we heard, to go the better provided, and 
+            <lb/>use the more carefulness both at home and abroad, leaving the event to the disposing of the Almighty, 
+            <lb/>whose providence as it had hitherto been over us for good, so we had now no cause (save our sins) to 
+            <lb/>despair of his mercy in our preservation and continuance, where we desired rather to be instruments of 
+            <lb/>good to the Heathens about us, than to give them the least measure of just offense.
+            <pb/>
+            All things being now in readiness, the forenamed Captain with ten men, accompanied with Tisquantum' and Hobomok, 
+            <lb/>set forwards for the Massachusetts: but we had no sooner turned the point of the harbor called the Gurnets nose 
+            <lb/>(where being becalmed we let fall our grapnel, to set things to rights, and prepare to row) but there came an 
+            <lb/>Indian of Tisquantum's family, running to certain of our people that were from home with all eagerness, having 
+            <lb/>his face wounded, and the blood still fresh on the same, calling to them to repair home, oft looking behind him, 
+            <lb/>as if some others had him in chase, saying that at Nemasket (a town some fifteen miles from us) there were many 
+            <lb/>of the Narragansetts, Massasoit our supposed friend, and Corbitant our feared enemy, with many others, with a 
+            <lb/>resolution to take advantage on the present opportunity, to assault the town in the Captains absence, affirming 
+            <lb/>that he received the wound in his face for speaking in our behalf, and by flight escaped, looking oft backward, 
+            <lb/>as if he suspected them to be at hand. This he affirmed again to the Governor, whereupon he gave command that 
+            <lb/>three piece of Ordnance should be made ready and discharged, to the end that if we were not out of hearing, we 
+            <lb/>might return thereat. Which we no sooner heard, but we repaired homeward with all convenient speed, arming our 
+            <lb/>selves, and making all in readiness to fight. When we entered the harbor, we saw the Town likewise on their 
+            <lb/>guard, whither we hasted with all convenient speed. The news being made known unto us, Hobomok said flatly that 
+            <lb/>it was false, assuring us of Massasoit's faithfulness; howsoever he presumed he would never have undertaken any 
+            <lb/>such act without his privity, himself being a Pinse, that is, one of his chiefest champions or men of valor, it 
+            <lb/>being the manner amongst them not to undertake such enterprises without the advice and furtherance of men of that 
+            <lb/>rank. To this the Governor answered, he should be sorry that any just and necessary occasions of war should arise 
+            <lb/>between him and any the Savages, but especially Massasoit, not that he feared him more than the rest, but because 
+            <lb/>his love more exceeded towards him than any. Whereunto Hobomok replied; There was no cause wherefore he should 
+            <lb/>distrust him, and therefore should doe well to continue his affections.
+            <pb/>
+            But to the end things might be made more manifest, the Governor caused Hobomok to send his wife with all privacy to 
+            <lb/>Pokanoket the chief place of Massasoit's residence, (pretending other occasions) there to inform herself, and so us, 
+            <lb/>of the right state of things. When she came thither, and saw all things quiet, and that no such matter was or had been 
+            <lb/>intended, told Massasoit what had happened at Plymouth, (by them called Patuxet) which when he understood, he was much 
+            <lb/>offended at the carriage of Tisquantum, returning many thanks to the Governor for his good thoughts of him; and assuring 
+            <lb/>him that according to their first Articles of peace, he would send word and give warning when any such business was towards.
+            <lb/>Thus by degrees we began to discover Tisquantum, whose ends were only to make himself great in the eyes of this Country-men, 
+            <lb/>by means of his nearness and favor with us, not caring who fell so he stood. In the general, his course was to persuade them 
+            <lb/>he could lead us to peace or war at his pleasure, and would oft threaten the Indians, sending them word in a private manner, 
+            <lb/>we were intended shortly to kill them, that thereby he might get gifts to himself to work their peace, insomuch as they had 
+            <lb/>him in greater esteem than many of their Sachems; yea they themselves sought to him, who promised them peace in respect of 
+            <lb/>us; yea and protection also, so as they would resort to him. So that whereas divers were wont to relic on Massasoit for 
+            <lb/>protection, and resort to his abode, now they began to leave him, and seek after Tisquantum. Now though he could not make 
+            <lb/>good these his large promises, especially because of the continued peace between Massasoit and us, he therefore raised 
+            <lb/>this false alarm, hoping whilest things were hot in the heat of blood, to provoke us to march into his Country against him, 
+            <lb/>whereby he hoped to kindle such a flame as would not easily be quenched, and hoping if that block were once removed, there 
+            <lb/>were no other between him and honor; which he loved as his life, and preferred before his peace. For these and the like abuses, 
+            <lb/>the Governor sharply reproved him, yet was he so necessary and profitable an instrument, as at that time we could not miss him. 
+            <lb/>But when we understood his dealings, we certified all the Indians of our ignorance and innocence therein, assuring them till 
+            <lb/>they begun with us, they should have no cause to fear. And if any hereafter should raise any such reports, they should punish 
+            <lb/>them as liars and seekers of their and our disturbance, which gave the Indians good satisfaction on all sides. After this we 
+            <lb/>proceeded in our voyage to the Massachusetts, where we had good store of Trade, and (blessed be God) returned in safety, though 
+            <lb/>driven from before our Town in great danger and extremity of weather.
+            <pb/>
+            At our return, we found Massasoit at the Plantation, who made his seeming just Apology for all former matters of accusation, being 
+            <lb/>much offended and enraged against Tisquantum, whom the Governor pacified as much as he could for the present. But not long after 
+            <lb/>his departure, he sent a messenger to the Governor, entreating him to give way to the death of Tisquantum, who had so much abused him. 
+            <lb/>But the Governor answered; Although he had deserved to die both in respect of him and us; yet for our sakes he desired he would spare him, 
+            <lb/>and the rather because without him he knew not well how to Understand himself, or any other the Indians. With this answer the messenger 
+            <lb/>returned, but came again not long after, accompanied with divers others, demanding him from Massasoit their Master, as being one of his 
+            <lb/>subjects, whom by our first Articles of peace we could not retain: yet because he would not willingly doe it without the Governors approbation, 
+            <lb/>offered him many Beaver's skins for his consent thereto, saying, that according to their manner, their Sachem had sent his own knife, and them 
+            <lb/>therewith, to cut off his head and hands, and bring them to him. To which the Governor answered; Yet was not the manner of the English to sell 
+            <lb/>mens' lives at a price, but when they had deserved justly to die, to give them their reward, and therefore refused their Beavers as a gift:
+            <lb/>but sent for Tisquantum, who though he knew their intent, yet offered not to fly, but came and accused Hobomok as the author and worker 
+            <lb/>of his overthrow; yielding himself to the Governor to be sent or not according as he thought meet. But at the instant, when our 
+            <lb/>Governor was ready to deliver him into the hands of his Executioners, a Boat was scene at Sea to cross before our Town, and fall 
+            <lb/>behind a head-land not far off: whereupon, having heard many rumors of the French, and not knowing whether there were any combination 
+            <lb/>between the Savages and them, the Governor told the Indians, he would first know what Boat that was ere he would deliver him into their 
+            <lb/>custody. But being mad with rage, and impatient at delay, they departed in great heat.
+            <pb/>
+            Here let me not omit one notable (though wicked) practice of this Tisquantum, who to the end he might possess his Countrymen with the greater 
+            <lb/>fear of us, and so consequently of himself, told them we had the plague buried in our storehouse, which at our pleasure we could send 
+            <lb/>forth to what place or people we would, and destroy them therewith, though we stirred not from home. Being upon the fore-named brabbles 
+            <lb/>sent for by the Governor to this place, where Hobomok was and some other of us, the ground being broke in the midst of the house, (hereunder 
+            <lb/>certain barrels of powder were buried, though unknown to him) Hobomok asked him what it meant? To whom he readily answered; That was the 
+            <lb/>place wherein the plague was buried, whereof he formerly told him and others. After this Hobomok asked one of our people, whether such a 
+            <lb/>thing were, and whether we had such command of it ? Who answered no; But the God of the English had it in store, and could send it at his 
+            <lb/>pleasure to the instruction of his and our enemies. This was, as I take it, about the end of May 1622. At which time our store of 
+            <lb/>victuals was wholly spent, having lived long before with a bare and short allowance: The reason was, that supply of men before mentioned, 
+            <lb/>which came so unprovided, not landing so much as a barrel of bread or meal for their whole company, but contrariwise received from us for 
+            <lb/>their ships store homeward. Neither were the setters forth thereof altogether to be blamed therein, but rather certain amongst our selves, 
+            <lb/>who were too prodigal in their writing and reporting of that plenty we enjoyed. But that I may return.
+            
+            This Boat proved to be a Shallop that belonged to a fishing ship, called the Sparrow, set forth by Master Thomas Weston, late Merchant and 
+            <lb/>Citizen of London, which brought six or seven passengers at his charge, that should before have been landed at our Plantation, who also 
+            <lb/>brought no more provision for the present than served the Boats gang for their return to the ship, which made her voyage at a place 
+            <lb/>called Damarins Cove near Munhiggen some forty leagues from us North-eastward; about which place there fished above thirty sail of 
+            <lb/>ships, and whither my self was employed by our Governor, with orders to take up such victuals as the ships could spare, where I found 
+            <lb/>kind entertainment and good respect, with a willingness to supply our wants: But being not able to spare that quantity I required, by 
+            <lb/>reason of the necessity of some amongst themselves, whom they supplied before my coming, would not take any Bills for the same, but did 
+            <lb/>what they could freely, wishing their store had been such as they might in greater measure have expressed their own love, and supplied 
+            <lb/>our necessities, for which they sorrowed, provoking one another to the utmost of their abilities: which although it were not much amongst 
+            <lb/>so many people as were at the Plantation, yet through the provident and discreet care of the Governors, recovered and preserved strength 
+            <lb/>till our own crop on the I ground was ready.
+            
+            Having dispatched there, I returned home with all speed convenient, where I found the state of the Colony much weaker than when I left it: for 
+            <lb/>till now we were never without some bread, the want whereof much abated the strength and flesh of some, and swelled others. But here it may 
+            <lb/>be said, if the Country abound with Fish and Fowl in such measure as is reported, how could men undergo such measure of hardness, except 
+            <lb/>through their own negligence? I answer; Every thing must be expected in its proper season. No man, as one saith, will go into an Orchard 
+            <lb/>in the Winter to gather Cherries: so he that looks for Fowl there in the Summer, will be deceived in his expectation. The time they 
+            <lb/>continue in plenty with us, is from the beginning of October to the end of March: but these extremities befell us in May and June. 
+            <lb/>I confess that as the Fowl decrease, so Fish increase. And indeed their exceeding abundance was great cause of increasing our wants. 
+            <lb/>For though our Bay and Creeks were full of Bass, and other fish, yet for want of fit and strong seines, and other netting, they for 
+            <lb/>the most part brake through and carried all away before them. And though the Sea were full of Cod, yet we had neither tackling nor 
+            <lb/>hawsers for our Shallops. And indeed had we not been in a place where divers sorts of shell-fish are that may be taken with the hand, 
+            <lb/>we must have perished, unless God had raised some unknown or extraordinary means for our preservation.
+            
+            In the time of these straits (indeed before my going to Monhiggan) the Indians began again to cast forth many insulting speeches, 
+            <lb/>glorying in our weakness, and giving out how easy it would be ere long to cut us off. Now also Massasoit seemed to frown on us, and 
+            <lb/>neither came or sent to us as formerly. These things occasioned further thoughts of Fortification: And whereas we have a Hill called 
+            <lb/>the Mount, enclose within our pale, under which our Town is seated, we resolved to erect a Fort thereon, from whence a few might easily 
+            <lb/>secure the Town from any assault the Indians can make, whilest the rest might be employed as occasion served. This work was begun with 
+            <lb/>great eagerness, and with the approbation of all men, hoping that this being once finished, and a continual guard there kept, it would 
+            <lb/>utterly discourage the Savages from having any hopes or thoughts of rising against us. And though it took the greatest part of our strength 
+            <lb/>from dressing our come, yet (life being continued) we hoped God would raise some means in stead thereof for our further preservation. .</p>
+      </body>
+  </text>
+</TEI>
