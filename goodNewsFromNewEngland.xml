@@ -37,16 +37,15 @@
      What is might be worth marking up in this text that can help us think about other narratives of contact?
      -->
       <body>
-            <p>
-            <hi>TO
-            ALL WELL-WILLERS
-            AND FURTHERERS OF 
-            Plantations in <placeName>New-England</placeName>: especially 
-            to such as ever have or desire to assist the 
-            people of <placeName>Plymoputh</placeName> in their just pro- 
-            ceedings, Grace, and Peace, be 
-            multiplied.</hi>
-            Right Honorable and Worshipful Gentlemen, or whatsoever:
+         <p>TO
+            <lb/> ALL WELL-WILLERS
+            <lb/>AND FURTHERERS OF 
+            <lb/>Plantations in <placeName>New-England</placeName>: especially 
+            <lb/>to such as ever have or desire to assist, the 
+            <lb/>people of <placeName>Plimoth</placeName> in their just pro- 
+            <lb/>ceedings, Grace, and Peace, be 
+            <lb/>multiplied.</p>
+         <p>Right Honorable and Worshipful Gentlemen, or whatsoever:
             Since it hath pleased <persName>God</persName> to stir you up to be instruments of his glory, in so honorable an 
             enterprise as the enlarging of his <name ref="king">Majesty’s</name> <hi>Dominions</hi>, by planting his loyal subjects in so healthful and 
             hopeful a country as New England is; where the Church of <persName>God</persName> being seated in sincerity, there is no less 
@@ -100,12 +99,13 @@
             eternal. 
             Yours in this service, ever 
             to be <hi>commanded</hi>: 
-            <persName ref="narrator">E.W.</persName></p>
+            <persName ref="narrator">E.W.</persName>
+            
          
          <!-- This is where Chpater two begins. I have skipped the introduction to the reader so that I can get right to the narrative
          It is also here where I begin capturing rendtional information -->
          
-         <p> <lb/>The Good Ship called the <name rend="italics">Fortune</name>, which in the Month of <time rend="italics">November 1621</time>. 
+            <lb/>The Good Ship called the <name rend="italics">Fortune</name>, which in the Month of <time rend="italics">November 1621</time>. 
             <lb/>(blessed be <persName>God</persName>) brought us a new supply of <hi>35 persons</hi>, was not long 
             <lb/>departed <placeName ref="New England">our Coast</placeName>, ere the Great people of<placeName rend="italics">Nanohigganset</placeName>, which are re-
             <lb/>ported to be many thousands strong, began to breath forth many <hi>threats</hi> 
@@ -329,7 +329,8 @@
             <lb/>secure the Town from any assault the Indians can make, whilest the rest might be employed as occasion served. This work was begun with 
             <lb/>great eagerness, and with the approbation of all men, hoping that this being once finished, and a continual guard there kept, it would 
             <lb/>utterly discourage the Savages from having any hopes or thoughts of rising against us. And though it took the greatest part of our strength 
-            <lb/>from dressing our come, yet (life being continued) we hoped God would raise some means in stead thereof for our further preservation. .</p>
+            <lb/>from dressing our come, yet (life being continued) we hoped God would raise some means in stead thereof for our further preservation. .
+         </p>
       </body>
   </text>
 </TEI>

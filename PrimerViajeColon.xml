@@ -94,7 +94,7 @@
                <lb/>este presente año de<time>1492</time>, después de Vuestras Alte- 
                <lb/>zas haber dado fin a la <!-- Flag following -->guerra de los <name>moros</name> que reina- 
                <lb/>ban en<placeName>Europa</placeName> y haber acabado la <!-- Flag this -->guerra en la muy 
-               <lb/>grande ciudad de <placeName>Granada</placeName>, adonde este presente año,
+               <lb/>grande ciudad de <name xml:id="GranadaSouthIberian">Granada</name>, adonde este presente año,
                <lb/>a dos días del mes de <time>enero</time><!-- Flag following -->por fuerza de armas vide 
                <lb/>poner las banderas reales de Vuestras Altezas en las <lb/>torres de la Alhambra, que es la <!-- Flag this -->fortaleza de la dicha 
                <lb/>ciudad y vi salir al <name>rey moro</name> a las puertas de la ciudad y
@@ -102,14 +102,14 @@
                <lb/>del Príncipe mi<name>Señor</name>, y luego en aquel presente mes, 
                <lb/>por la información que yo había dado a Vuestras Alte- 
                <lb/>zas de las tierras de India y de un Príncipe lla-
-               <lb/>mado Gran Can (que quiere decir en nuestro romance 
+               <lb/>mado <name>Gran Can</name> (que quiere decir en nuestro romance 
                <lb/>Rey de los Reyes), como muchas veces él y sus ante- 
                <lb/>cesores habían enviado a Roma a pedir doctores en
                <lb/>nuestra santa fe porque le enseñasen en ella, y que 
                <lb/>nunca el Santo Padre le había proveído y se perdían 
-               <lb/>tantos pueblos creyendo en idolatrías o recibiendo en 
+               <lb/>tantos pueblos creyendo en <name ana="Idolatry">idolatrías</name> o recibiendo en 
                <lb/>sí sectas de perdición, Vuestras Altezas, como católi- 
-               <lb/>cos cristianos y Príncipes amadores de la santa fe cris- 
+               <lb/>cos <name>cristianos</name> y Príncipes amadores de la santa fe cris- 
                <lb/>tiana y acrecentadores de ella, y enemigos de la secta 
                <lb/>de Mahoma y de todas idolatrías y herejías, pensaron
                <lb/>de enviarme a mí, <persName>Cristóbal Colón</persName>, a las dichas partidas
