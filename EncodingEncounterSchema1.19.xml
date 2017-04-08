@@ -221,6 +221,56 @@
       </attDef>
      </attList>
     </elementSpec>
+    
+    <elementSpec ident="encounters" mode="add">
+     <gloss>encounter between colonial power and indigenous persons</gloss>
+     <altIdent>encounter</altIdent>
+     <desc>describes encounters</desc>
+     <classes mode="replace">
+      <memberOf key="model.nameLike.agent"/>
+      <memberOf key="model.global"/>
+      <memberOf key="model.titlepagePart"/>
+      <memberOf key="model.pLike.front"/>
+      <memberOf key="model.emphLike"/>
+      <memberOf key="att.global"/>
+      <memberOf/>
+     </classes>
+     <content>
+      <rng:zeroOrMore>
+       <rng:ref name="action"/>
+      </rng:zeroOrMore>
+      <rng:text/>
+     </content>
+     <attList>
+      <attDef ident="type" mode="add" usage="req">
+       <valList type="closed">
+        <valItem ident="nautical">
+         <desc>A person who has written some or all of the main content of the text </desc>
+        </valItem>
+        <valItem ident="urban">
+         <desc>A person who has edited the text without contributing to its main content
+          (adding annotations or providing other editorial oversight)</desc>
+        </valItem>
+        <valItem ident="rural">
+         <desc>A person who has translated the main content of the text from one language
+          into another</desc>
+        </valItem>
+        <valItem ident="militaristic">
+         <desc>A person or entity responsible for the publication (i.e. the sponsorship of
+          the production and dissemination) of the work; in some cases this may be the
+          author</desc>
+        </valItem>
+        <valItem ident="imagined">
+         <desc>A person or entity responsible for the physical printing process</desc>
+        </valItem>
+        <valItem ident="supposed">
+         <desc>A person or entity responsible for the sale and distribution of the
+          work</desc>
+        </valItem>
+       </valList>
+      </attDef>
+     </attList>
+    </elementSpec>
 
     <moduleRef key="transcr"/>
     <moduleRef key="verse"/>
