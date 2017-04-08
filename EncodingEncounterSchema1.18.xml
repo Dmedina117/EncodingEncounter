@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:rng="http://relaxng.org/ns/structure/1.0"
+ xml:lang="en">
+ <teiHeader>
+  <fileDesc>
+   <titleStmt>
+    <title>EncodingEncounter1.18</title>
+    <author>David Medina</author>
+   </titleStmt>
+   <publicationStmt>
+    <publisher>TEI Consortium</publisher>
+    <availability status="free">
+     <p>TEI material can be licensed differently depending on the use you intend to make of it.
+      Hence it is made available under both the CC+BY and BSD-2 licences. The CC+BY licence is
+      generally appropriate for usages which treat TEI content as data or documentation. The BSD-2
+      licence is generally appropriate for usage of TEI content in a software environment. For
+      further information or clarification, please contact the TEI Consortium (info@tei-c.org).</p>
+    </availability>
+   </publicationStmt>
+   <notesStmt>
+    <note type="ns">http://www.example.org/ns/EE/ver1.12</note>
+   </notesStmt>
+   <sourceDesc>
+    <p>Written from scratch.</p>
+   </sourceDesc>
+  </fileDesc>
+ </teiHeader>
+ <text>
+  <body>
+   <head>TEI Complete</head>
+   <p><emph>all</emph> of the TEI (P5) modules. This is a very useful starting place for manually
+    creating your own customizations — it is much easier to delete the modules you do not want than
+    to add the modules you do. Furthermore this customization often proves helpful for testing TEI
+    software.This TEI customization describes a schema that includes a reduction and addition</p>
+   <p>However, this particular TEI customization is <emph>not recommended</emph> for actual use for
+    encoding documents. It produces schemas and reference documentation that will be much larger,
+    and include many more elements, than almost anyone could conceivably ever need. Tempting though
+    it may be simply to have absolutely everything, and <q>just ignore</q> elements not required,
+    experience has shown that their presence makes the documentation harder to read and use, and
+    makes a schema that is far more lax than desired.</p>
+   <schemaSpec ident="tei_all" start="TEI teiCorpus" prefix="x" docLang="en">
+    <moduleRef key="tei"/>
+    <!-- required -->
+
+    <moduleRef key="core" except="binaryObject cb divGen editor email gb
+     media meeting"/>
+
+    <elementSpec module="core" ident="distinct" mode="change">
+     <attList>
+      <attDef ident="type" mode="replace">
+       <datatype>
+        <rng:ref name="specificrhetoric"/>
+       </datatype>
+       <valList type="closed">
+        <valItem ident="dialect"/>
+        <valItem ident="scientific"/>
+        <valItem ident="gesticulation"/>
+        <valItem ident="religious"/>
+        <valItem ident="economic"/>
+        <valItem ident="eulogistic"/>
+        <valItem ident="militaristic"/>
+        <valItem ident="nautical"/>
+        <valItem ident="agricultural"/>
+        <valItem ident="geographical"/>
+        <valItem ident="ethnographic"/>
+        <valItem ident="mentioned"/>
+       </valList>
+      </attDef>
+     </attList>
+    </elementSpec>
+
+    <elementSpec ident="properAdj" ns="https://github.com/Dmedina117/EncodingEncounter">
+     <desc>signals a particular proper adj</desc>
+     <classes>
+      <memberOf key="model.emphLike"/>
+     </classes>
+     <content>
+      <macroRef key="macro.phraseSeq"/>
+     </content>
+     <attList>
+      <attDef ident="type">
+       <datatype minOccurs="0" maxOccurs="unbounded">
+        <dataRef key="teidata.word"/>
+       </datatype>
+      </attDef>
+     </attList>
+     <remarks>
+      <p>proper adj is used to signift proper adjectives</p>
+     </remarks>
+    </elementSpec>
+
+    <moduleRef key="analysis"/>
+
+    <moduleRef key="certainty"/>
+    <moduleRef key="corpus"/>
+    <moduleRef key="dictionaries" except=""/>
+    <moduleRef key="drama"
+     except="actor camera caption castGroup castItem castList move role roleDesc set sound spGrp tech view"/>
+    <moduleRef key="figures"/>
+    <moduleRef key="gaiji"/>
+    <moduleRef key="header"/>
+    <!-- required -->
+    <moduleRef key="iso-fs"/>
+    <moduleRef key="linking"/>
+    <moduleRef key="msdescription"/>
+    <moduleRef key="namesdates"/>
+    <moduleRef key="nets"/>
+    <moduleRef key="spoken"/>
+    <moduleRef key="textcrit"/>
+
+
+    <moduleRef key="textstructure" except="argument div1 div2 div3 div4 div5
+     div6 div7"/>
+    <elementSpec module="textstructure" ident="div" mode="change">
+     <attList>
+      <attDef ident="type" mode="replace">
+       <datatype>
+        <rng:ref name="data.enumerated"/>
+       </datatype>
+       <valList type="closed">
+        <valItem ident="act"/>
+        <valItem ident="appendix"/>
+        <valItem ident="article"/>
+        <valItem ident="bibliography"/>
+        <valItem ident="book"/>
+        <valItem ident="castList"/>
+        <valItem ident="chapter"/>
+        <valItem ident="colophon"/>
+        <valItem ident="concluding"/>
+        <valItem ident="contents"/>
+        <valItem ident="corrigenda"/>
+        <valItem ident="ded"/>
+        <valItem ident="edict"/>
+        <valItem ident="endnote"/>
+        <valItem ident="entry"/>
+        <valItem ident="epigraph"/>
+        <valItem ident="epilogue"/>
+        <valItem ident="essay"/>
+        <valItem ident="frontispiece"/>
+        <valItem ident="glossary"/>
+        <valItem ident="index"/>
+        <valItem ident="letter"/>
+        <valItem ident="notice"/>
+        <valItem ident="part"/>
+        <valItem ident="petition"/>
+        <valItem ident="poem"/>
+        <valItem ident="poemGroup"/>
+        <valItem ident="prayer"/>
+        <valItem ident="postscript"/>
+        <valItem ident="packet"/>
+        <valItem ident="prefatory"/>
+        <valItem ident="prologue"/>
+        <valItem ident="recipe"/>
+        <valItem ident="scene"/>
+        <valItem ident="section"/>
+        <valItem ident="speech"/>
+        <valItem ident="subsection"/>
+        <valItem ident="undetermined"/>
+        <valItem ident="volume"/>
+       </valList>
+      </attDef>
+     </attList>
+    </elementSpec>
+    <!--docRole-->
+    <elementSpec ident="docRole" mode="add">
+     <gloss>document role</gloss>
+     <altIdent>docRole</altIdent>
+     <desc>contains an indication of a person or organization who played a significant role in the
+      production of the source book, as given on the title page (often but not always contained in a
+      byline).</desc>
+     <classes mode="replace">
+      <memberOf key="model.nameLike.agent"/>
+      <memberOf key="model.global"/>
+      <memberOf key="model.titlepagePart"/>
+      <memberOf key="model.pLike.front"/>
+      <memberOf key="att.global"/>
+      <memberOf/>
+     </classes>
+     <content>
+      <rng:zeroOrMore>
+       <rng:ref name="persName"/>
+      </rng:zeroOrMore>
+      <rng:text/>
+     </content>
+     <attList>
+      <attDef ident="type" mode="add" usage="req">
+       <valList type="closed">
+        <valItem ident="author">
+         <desc>A person who has written some or all of the main content of the text </desc>
+        </valItem>
+        <valItem ident="editor">
+         <desc>A person who has edited the text without contributing to its main content (adding
+          annotations or providing other editorial oversight)</desc>
+        </valItem>
+        <valItem ident="translator">
+         <desc>A person who has translated the main content of the text from one language into
+          another</desc>
+        </valItem>
+        <valItem ident="publisher">
+         <desc>A person or entity responsible for the publication (i.e. the sponsorship of the
+          production and dissemination) of the work; in some cases this may be the author</desc>
+        </valItem>
+        <valItem ident="printer">
+         <desc>A person or entity responsible for the physical printing process</desc>
+        </valItem>
+        <valItem ident="bookseller">
+         <desc>A person or entity responsible for the sale and distribution of the work</desc>
+        </valItem>
+        <valItem ident="licensee">
+         <desc> </desc>
+        </valItem>
+        <valItem ident="disseminator">
+         <desc> </desc>
+        </valItem>
+        <valItem ident="uncertain">
+         <desc> </desc>
+        </valItem>
+       </valList>
+      </attDef>
+     </attList>
+    </elementSpec>
+
+    <moduleRef key="transcr"/>
+    <moduleRef key="verse"/>
+    <moduleRef key="tagdocs"/>
+   </schemaSpec>
+  </body>
+ </text>
+</TEI>
