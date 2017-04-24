@@ -71335,7 +71335,7 @@ lament	fear	1
 lament	joy	0
 lament	negative	1
 lament	positive	0
-lament	sadness	1
+lament	eulogistic	1
 lament	surprise	0
 lament	trust	0
 lamenting	anger	0
@@ -71345,7 +71345,7 @@ lamenting	fear	0
 lamenting	joy	0
 lamenting	negative	0
 lamenting	positive	0
-lamenting	sadness	1
+lamenting	eulogistic	1
 lamenting	surprise	0
 lamenting	trust	0
 lamina	anger	0
