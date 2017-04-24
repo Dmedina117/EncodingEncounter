@@ -1,0 +1,323 @@
+---
+title: 'Eulogistic Ethnographies: Sentiment Analysis'
+output:
+  html_document: default
+  html_notebook: default
+Author: David Medina
+---
+
+## The Story So Far & My Next Challenge
+
+Authors in early America were often driven by a need to catalog, name, and associate all the newness of the new world.  These new systems of cataloging, classifying, and naming were disseminated, in part, via new and specific genres, which included: the indigenous American ethnography, the captivity narrative, the brief and true report, and the grammar book. Each of these genres dramatically altered readers’ perceptions of the "new world". And while there are myriad stories to be told regarding this phenomenon, this research notebook centers on new world representations of indigenous persons and the discernable ethnographic rhetoric that was employed. In what follows, I use computational analysis alongside traditional literary study techniques to make the argument that the confluence of the historical and the poetic shaped and continues to shape the perception of indigenous American cultures.
+
+The heart of this research relies upon a collection of texts—a corpus of early American ethnographic texts—many of which have previously been analyzed by scholars employing distinct disciplinary approaches and methods, but to my knowledge, however, few scholars of early American ethnographic literature have borrowed from the field of computational analysis. 
+
+I borrow the term “encounter scenario” from performance theorist Diana Taylor to think about early American ethnographic literature as representational of a given spatial/temporal scene of encounter between cultures. Encounter scenarios as I see them are, in essence, instances in which colonial agents encounter indigenous peoples. By viewing my text as a description of a colonial encounter scenario I begin with the premise that encounter scenarios proper began with Columbus's arrival in the Americas and ended, so to speak, with the events surrounding the last of the Yahi tribe, Ishi. And while my research focuses, broadly, on narratives of indigenous encounter, it utilizes new tools and theories to the conversation to create and test new, complex questions that I believe are worth pursuing. Some such questions include: Do translations of narratives written in Spanish but translated into English by organizations such as the Hakluyt society dramatically alter the sentiment of the original text? Does eulogistic rhetoric show up regularly in early American ethnographies? What can digital tools offer the research who in interested in the study of book history? And how does taxonomy change from one century to the text in a corpus of 16-19th century texts?
+
+The primary aim of my project is to pursue a hypothesis regarding early American ethnographic texts published in the 16th-19th centuries. In a word, I believe that there is a relationship between eulogistic rhetoric and early American ethnographic representation. It is my belief that this particular confluence exists because many early American authors—writing about experiences from all over the Americas--were subconsciously perpetuating the false notion that Indigenous American culture was in decline, and that it was the duty of the ethnographer to document this "culture in decline.”  Part of my project aims to examine this rhetoric to argue that there is a notable trend. This rhetorical move, if I can prove it was done constantly and consistently during the 16-19th century, may suggest that the proliferation of the myth of the "noble savage in decline," a myth that is observable and has been perpetuated well into the present, is one that primarily spread due to literary representation in non-fiction texts.
+
+Several literary scholars such as Walter D. Mignolo, Jodi Byrd, and Anna Brickhouse have all made succinct claims about language its connection to empire building and the establishment of cultural ideology. And while the argument has been made about works of fiction, to my knowledge, the same argument has not been applied to works of early American non-fiction. But because I am only one person capable of reading few of the thousands of ethnographic texts that exist, I cannot reasonably presume there is a shift or pattern in rhetoric unless I can make my corpus much more representative. Consequently, my research focuses on using computational analysis too draw out new interpretations from a very specific body of ethnographic texts—a corpus that is also scalable. 
+
+The pursuit of answers to these questions has already led me deep into the realm of computational analysis. I have, for example, already run a number of different computational analyses on my corpus and discovered quite a bit about the texts that comprise my corpus. For example, by creating topic models I discovered that my translations and fairly accurate; words like “Land” and “Tierra” often appear in the same topics in trained topic models. And by running vector space models and other semantic data analysis filters I've learned a bit about which words appear with others most often. 
+
+I have become more familiar with my corpus and some tools that I can use to test it, but it is here that my most challenging research begins. I have decided to turn to natural language processing, also known as opinion mining tools, to draw out and analyze very particular subjective themes, words, and phrases found across my corpus. Although I will say more on this later, there already exists a great deal of research on sentiment analysis. There are four widely used sentiment lexicons that have already been developed and modified to help programmers and researchers perform meaningful sentiment analysis.  
+
+The difficulty here is going to be modifying the sentiment analysis filter to include a mechanism for isolating and documenting what I have previously refered to as eulogistic rhetoric. Here’s the challenge in a nutshell: I know what a eulogistic sentence looks like, but because many of the lexicons for sentiment analysis are based on single words I need to discern what a eulogistic word is. Words such as “lament,” “sorrowful,” and “mournful” are a few examples of words that I know appear across the texts I am investigating, but these are also words that established sentiment lexicons have categorized as “negative” words. Continuing this path of sentiment analysis means one of two things. Either I modify a sentiment lexicon. Or I build my own. But before I can do either I need to understand how sentiment analysis functions.
+
+
+###The Texts
+
+
+I start out by reading in two texts originally authored in Spanish as well as their two English translations. I'm interested here in semantic overlap--or lack of it. For example, what does it mean when the Spanish word "Indio" [Indian] is translated by an English translator into a text as the word "savage"" or "heathen?" I think there this might prove useful for thinking about the text in a new way. Although I don't think I have the R knowledge to look at individual words, I do have the knowledge to look at all words in a given set of data. But first thing's first. I need to load a few packages that will prove useful. And altough I can install these one by one, I personally think it's best to just load them all up before I begin working with my data.
+
+###Packages and Data Import
+```{r}
+library(mallet)
+library(tidyverse)      # data manipulation & plotting
+library(stringr)        # text cleaning
+library(tidytext)   
+library(devtools)
+library(dplyr)
+library(tibble)
+library(tokenizers)
+library(tidyr)
+library(tm)
+library(ggplot2)
+library(magrittr)
+library(wordVectors)
+library(tsne)
+library(SnowballC)
+library(syuzhet)
+```
+### A Note About My Current Corpus
+My current corpus includes two of the most cited narratives of encounter in the New World--The First voyage of Christopher Columbus, and the Conquest of New Spain written by Bernal Diaz. My corpus also contains a number of other ethnographic texts such as Lewis and Clark’s journals, Alexandre Exquemelin and Lionel Wafer’s accounts of the Caribs in the Caribbean basin, the journals of captain Henry Bouquet from Fort Pitt, as well as a few other wellknown texts that contain ethnographic rhetroic and depict scenarios of encounter. I am continuously adding to my corpus, and I imagine that this collection of literature will continue to grow. In a previous notebook I played around with corpora and thought through some of the ways to divide my corpora. I have a fairly concrete system of ways to assign my texts into categories that arrange them according to given time periods, languages, and subgenres. I use these divisions to make more stable predictions about rhetorical changes. For now, though, I'm going to keep things fairly simple by working with just 12 texts.
+
+The code below reads in all my files as individual values. 
+```{r}
+Cdve <- read_file("./Data/Corpus/Cabezadevacaenglish.txt")
+Cdvs <- read_file("./Data/Corpus/Cabezadevacaspanish.txt")
+Colon <- read_file("./Data/Corpus/Colon.txt")
+Columbus <- read_file("./Data/Corpus/Columbus.txt")
+Diaz <- read_file("./Data/Corpus/Diaz.txt")
+Diazeng <- read_file("./Data/Corpus/DiazEnglish.txt")
+Exquemelin <- read_file("./Data/Corpus/ExquemelinBuccaneersOfAmerica.txt")
+Staden <- read_file("./Data/Corpus/HansStaden.txt")
+LandC <- read_file("./Data/Corpus/Lewisandclardfull.txt")
+Wafer <- read_file("./Data/Corpus/Lionelwafer.txt")
+Bouquet <- read_file("./Data/Corpus/Papersofcolhenrybouquet.txt")
+Winslow <- read_file("./Data/Corpus/WinslowGoodNews.txt")
+```
+
+Then I concatanate the values and turn them into a dataframe.
+
+```{r}
+Corpustitles <- c("Cdve", "Cdvs", "Colon", "Columbus", "Diaz", "Diazeng", "Exquemelin", "Staden", "LandC", "Wafer", "Bouquet", "Winslow")
+Corpusitems <- c(Cdve, Cdvs, Colon, Columbus, Diaz, Diazeng, Exquemelin, Staden, LandC, Wafer, Bouquet, Winslow) %>%
+  as_data_frame() %>%
+  mutate(name = Corpustitles)
+```
+
+### A Note on Clean Data 
+
+I should note that the first thing that I needed to do before I could begin working on my data is "clean" it. Most of my texts comes from open access sources such as the Internet Archive and Hathi Trust. I begin by taking a plain text document of my historical text, many of which were created using some sort of OCR tool on an original print, and clean residual OCR errors with a bit of regualr expression. It's easy enough to spot patters of OCR error and adjust the document using RegEX, but after several hours of cleaning these documents I finally began to see that my texts are going to have to retain some of their messiness. After digging around for a better way to clean my data I soon find that I'm not alone in a digital sea. It turns out that the notion of clean data is a topic that has been discussed by scholars all across the digital humanties. For example, on the notion of "clean" or smart data Christof Schoch has written, about smart, big, and messy data. This scholarship helps me come to terms with my data. At this juncture, my data is both big and messy. But that does not mean I cannot produce useful results.
+
+
+####Back to the data
+The concatanated list I just produced is useful for isolating texts so I can see howhow sentiments change over the course of a give work in a corpus, but for moments where I am just interested in the bag of words approach I also have the entirety of english corpus texts ready to go as a .txt file. This file is easy read into a working environment using this function:
+
+```{r}
+readEnglishcorpuswords = function(file) {
+  message(file)
+  text = paste(scan(file, sep="\n",what="raw",strip.white = TRUE),collapse = "\n")
+  words = text %>% 
+    strsplit("[^A-Za-z]") %>% 
+    unlist
+  Corpus = data.frame(word=words,filename=gsub("Data/Corpuseng.txt","",file),stringsAsFactors = FALSE) %>% filter(word != "")
+  return(Corpus)
+}
+
+```
+This function helps me clean up the text a bit by removing white space.
+```{r}
+Allenglishcorpuswords = data.frame(filename="corpuseng.txt",stringsAsFactors=FALSE) %>% 
+  group_by(filename) %>% 
+  do(readEnglishcorpuswords(.$filename))
+```
+
+
+##Sentiment Analysis
+Once I have my dataframe I can begin to apply sentiment filters to the words that are available. There are several packages with built in sentiments that I can modify to begin lookng at my corpus--thankfully, one of these packages is tidytext, a package that I'm fairly familiar with. 
+
+Some sentiment analysis packages make use of a collection of ranked and classified lexicons. These sentiment Lexicons are essentially ranked and classified dictionary terms. And there are four of them in particualr that are readily avaialbe and modifiable: The NRC, The Bing, The Stanford, and the Afinn. Most of the lexicons make use of word stemming, but some lexicons do account for tense, and alternate spelling.
+
+##### Popular Sentiment Analysis Lexicons 
+The NRC lexicon breaks words into the following categories: positive, negative, anger, anticipation, disgust, fear, joy, sadness, surprise, and trust. This lexicon works by assigning words to their categories using a simple 0 or 1 binary system. Most importantly, this lexicon allows for multiple assignments. For example, the word lament can be assigned to sadness and surprise simultaneusly. This lexicon is the most useful for my purposes.
+
+The Bing lexicon categorizes words into strictly positive and negative categories. 
+
+The Afinn lexicon assigns words with a numeric score between -5 and 5, with negative scores indicating negative sentiment and positive scores indicating positive sentiment. 
+
+The Stanford lexicon is the one that I am least familiar with. It seems that the SocialSent algorthim that Stanford has release is a "domain specific" sentiment analysis filter that is not unlike the RSentiment package I describe below. Their lexicon contains the top 5000 non stope words in English from 1850-2000. This isn't necessarily useful for the types of transformations and analyses I aim to do, but it is worth mentioning this substatial work on sentiment analysis, nonetheless.  
+
+But there are a few issues with each of the above lexicons that are worth noting. For example, can anyone ever really be certain that a word, any word, os negative or positive? Take the word "abandon" for example. Is that word truly negative? We can imagine contexts in which an author might say "we abandoned our prejudice" and intuitively know that what we have read is a positive statement. But because many of these lexicons are only looking at individual words a machine algorithm would read the "we abandoned our prejudice" sentence as one that has an overall negative score. By doing some fairly exhaustive research I found there are a number of sentiment analysis packages available that read sentences or chapters rather than words.
+
+One such package is the "RSentiment Package." This sentiment analysis package takes into consideration all adjectives, adverbs, and words that the NRC, BING, and Afinn lexicons omit. We can imagine, for example, that a word based sentiment analysis would look at a sentence that reads "We did not have a bad day" and make the assumption that becuase the word "bad" is in it the sentence must be negative. But because the RSentiment package is more thorough, the results are more accurate. An example is demonstrated below.
+
+```{r}
+library(RSentiment)
+calculate_sentiment(c("then we did not have a bad day", "We had a great day"))
+```
+The calculate sentiment function looks at the entirely of the sentence and states, accurately, that the sentiment is positive. This package's calcuate sentiment function is incredibly useful; however, there are some problems. For instance, the package requires that the user manually enter the sentence that is to be analyzed. I have been unsuccessful in my attempst to apply this package's functions to my entire corpus. I have been unable to apply the functions to even one full text. From what I gather, in order to get an usable resutls the user has to take the text and parition sentences off using quotations marks commas after every sentence. This may be useful for things such as twitter sentiment analysis--where the size of the data is less that 140 charcters--but for a full corpus with millions of words manual input is simply not a feasable option.
+
+#### Error Error Error:
+
+The RSentiment package is useful for small amounts of data, but thankfully there are some packages that focues on larger data sets. I poured a massive amount of time I spent trying to make several packages work, but sadly, none of them were able to help me. I learned a lot about R from these failed experiements, and although I could say more about each package and the experience that I gained from trying to apply them to my data, but as sort of epitaph of time and opportunity I simply want to acknowledge the names of the unsuccessful packages below:: 
+
+"Sentiment" package. 
+"RSWLite" package.
+"Sentiment-spanish" package
+
+
+###Back to Sentiment Customization
+
+For the time being, then, I can use the get_sentiments function to see the differences between all three of these lexicons. 
+
+```{r}
+get_sentiments("afinn")
+get_sentiments("bing")
+get_sentiments("nrc")
+```
+
+Before I can begin modifying any of these lexicons, I first need to understand how they work. I begin by applying one of the three sentiment filters--The NRC lexicon--to my corpus and then visualize the findings by running the code block below.
+
+```{r}
+Corpusengsentiment <- Allenglishcorpuswords %>%
+        right_join(get_sentiments("nrc")) %>%
+        filter(!is.na(sentiment)) %>%
+        count(sentiment, sort = TRUE)
+
+ggplot(data=Corpusengsentiment, aes(x=Corpusengsentiment$sentiment, y=Corpusengsentiment$n, fill=Corpusengsentiment$sentiment)) +
+    geom_bar(stat="identity") + ggtitle("English Only Corpus with Sentiment Counts From NRC Lexicon") + 
+  labs(x="Sentiments",y="Sentiment Word Counts",fill="Sentiments")
+```
+This chart points to the fact that my corpus shares almost an equal amount of positive and negative words. it's interesting that most of my narratives deal with scenarios of encounter, the third most popular sentiment is trust, followed by anticipation and fear. 
+
+This chart shows that my english corpus, when categorized by the NRC lexicon, consists of mostly positive words. But again, this is using the NRC lexicon. If I want to make my sentiment analysis filter work for eulogistic rhetoric, I will have to add a category known as "eulogistic" and subtract all words from the other categories that belong to the new category I am going to create. I will also have to go through the process of adding new words to the lexicon. 
+
+
+It's also worth noting that because the NRC lexicon only works for English words  this particular visualizaion excludes my Spanish texts entirely. Additionally, I will also need to reconsider the way I clean my data. For example, the corpus I employ has a number of words that are note stemmed. Essentially, this means that words like Gather, gathers, and gathered all exist as individual words. So although the R packages that employ the various sentiment lexicons are smart, they are not smart enough to tell me what is being left out of the quantification processes due to things such as word stemming. And because I am intimately famialr with my corpus I am certain that there are a number of words that are being left out of these analysis entirely. It is at this juncture of consideration that I am reminded of Joanna Swafford's article "Messy Data and Faulty Tools," which states, "unless we focus more on creating quality-control systems for our work, we run the risk of drawing erroneous conclusions based on messy data and faulty tools." To put it simply, as I procced I will need to make sure that my data--be it messy or clean--is working with the tools the way I want it to.  
+
+###Customizaing Eulogistic Sentiment
+
+Due to the malleability of the NRC sentiment lexicon, I have decided that the best way to add a eulogistic rhetoric filter to my data is to customize the open access NRC lexicon. 
+
+This customized lexicon is availaible on my Github: https://raw.githubusercontent.com/Dmedina117/EncodingEncounter/master/NRCCustomization.txt 
+
+I can load in the customized NRC lexicon by using a simple code that turns my customized lexicon into a table.
+
+```{r}
+NRCCustom<- read.table("https://raw.githubusercontent.com/Dmedina117/EncodingEncounter/master/NRCCustomization.txt ")
+
+colnames(NRCCustom)[1] <- "word"
+colnames(NRCCustom)[2] <- "category"
+colnames(NRCCustom)[3] <- "assignment"
+```
+
+
+The code block below shows all the words that I have added to the "eulogistic" category.
+
+```{r}
+Customlexexample <- NRCCustom %>% filter(NRCCustom$category == "eulogistic")
+head(Customlexexample)
+```
+It's not much but I am extremly excited about the future of this customized lexicon. I think it show potential to become something great, perhaps even a dissertaion chapter, but for now it's in its natal stages and I know I have much work to do before I can even begin thinking about this filter anything more than just a filter.
+
+One of the major struggles of this project has been the integration of my customized NRC lexicon. I've done some research and it looks like I might just have to create a new package that mimics the "get_sentiment" function of tidytext. Althought I'm sure there is a way to merge the customized datafram with the dataframe that contains all my text and their respective sources, all attempts at merging have been unsuccessful. 
+
+Nevertheless, this is step one towards creating something tremendously exciting. And it's a good place to go back to my original question regarding the use of eulogistic rhetoric in early american non-fiction. My questions about future directions include: Does the frequency of eulogistic rhetoric change over time? How often is eulogistic rhetoric being employing in any given text? How can I further modify my filter and custom NRC lexicon? 
+
+##Moving to translations
+
+One of the other aims of my project is to track and visualize rhetorical difference between and given translation of early american texts. In order to get at this questions I will need to apply much of the same functionality to individual works of ethnography written in one language and then do the same thing to that work's translation. 
+
+This visualization represents the NRC lexicon in my English translation of Diaz's narrative
+```{r}
+#Pardon the clutter but writing out every step of code is the best way for me to think about what is happening to every single text that I want to work with. 
+Diazengfull <- read_file("./Data/Corpus/DiazEnglish.txt")
+Diazenglisted = Diazengfull %>%
+  strsplit("[^A-Za-z]") %>% 
+  unlist 
+Diazengtb <- tibble(word=Diazenglisted) %>% filter(word != "")
+
+Diazengsentiment <- Diazengtb %>%
+        right_join(get_sentiments("nrc")) %>%
+        filter(!is.na(sentiment)) %>%
+        count(sentiment, sort = TRUE)
+
+ggplot(data=Diazengsentiment, aes(x=Diazengsentiment$sentiment, y=Diazengsentiment$n, fill=Diazengsentiment$sentiment)) +
+    geom_bar(stat="identity") + ggtitle("Sentiment Count") + 
+  labs(x="Sentiments",y="Sentiment Word Counts",fill="Sentiments",caption="Bernal Diaz's Narrative in English")
+```
+The data from the Bernal Diaz narrative seems to align with the text itself. For example, because Cortes's men were dealing with Montezuma, there is a great deal in the text that describes moments of necessary trust.
+
+R also affords the abilty to count individual words that comprise an NRC sentiment category. These are the words that comprise the "trust" category in Diaz's narrative.
+
+```{r}
+nrctrust <- get_sentiments("nrc") %>%
+  filter(sentiment == "trust")
+Diazengtb %>%
+  semi_join(nrctrust) %>%
+  count(word, sort = TRUE)
+```
+
+By way of comparison I can also look at Columbus' journals
+
+```{r}
+#Pardon the clutter but writing out every step of code is the best way for me to think about what is happening to every single text that I want to work with. 
+Columbusengfull <- read_file("./Data/Corpus/Columbus.txt")
+Columbusenglisted = Columbusengfull %>%
+  strsplit("[^A-Za-z]") %>% 
+  unlist 
+Columbusengtb <- tibble(word=Columbusenglisted) %>% filter(word != "")
+
+Columbusengsentiment <- Columbusengtb %>%
+        right_join(get_sentiments("nrc")) %>%
+        filter(!is.na(sentiment)) %>%
+        count(sentiment, sort = TRUE)
+
+ggplot(data=Columbusengsentiment, aes(x=Columbusengsentiment$sentiment, y=Columbusengsentiment$n, fill=Columbusengsentiment$sentiment)) +
+    geom_bar(stat="identity") + ggtitle("Columbus's First Voyage to the New World") + 
+  labs(x="Sentiments",y="Sentiment Word Counts",fill="Sentiments")
+```
+It's interesting to note that the NRC sentiment lexicon would classify Columbus's first voyage to the New World as being more negative than positive. And it's also incredibly interesting to see that the fewest words belong to the "surprise" category.
+
+I can also run the code below to quantify the positive and negative words that are in both original works and their translations. The chart below represents the Bing lexicon--the lexicon that operates in a binary negative postivie fashion--applied to an early english translation of Bernal Diaz's narrative
+
+```{r}
+bing <- get_sentiments("bing")
+bing_word_counts <- Diazengtb %>%
+  inner_join(bing) %>%
+  count(sentiment, sort = TRUE) %>%
+  ungroup()
+
+ggplot(data=bing_word_counts, aes(x=bing_word_counts$sentiment, y=bing_word_counts$n, fill= bing_word_counts$sentiment)) +
+    geom_bar(stat="identity") + ggtitle("Bing Sentiments in Bernal Diaz's Narrative in English") + 
+  labs(x="Sentiments",y="Sentiment Word Counts",fill="Sentiments")
+
+```
+
+This visualization suggests that the Bing lexicon and the NRC lexicon are aligning fairly well.
+
+But when I run the code block that does the same thing to the english translation of Columbus's journals something interesting happens:
+
+```{r}
+bing <- get_sentiments("bing")
+bing_word_counts <- Columbusengtb %>%
+  inner_join(bing) %>%
+  count(sentiment, sort = TRUE) %>%
+  ungroup()
+
+ggplot(data=bing_word_counts, aes(x=bing_word_counts$sentiment, y=bing_word_counts$n, fill= bing_word_counts$sentiment)) +
+    geom_bar(stat="identity") + ggtitle("Columbus's First Voyage in English") + 
+  labs(x="Sentiments",y="Sentiment Word Counts",fill="Sentiments")
+
+```
+
+Here there is a mismatch, so to speak, between the NRC lexicon and the Bing lexicon. Why is this?
+
+#### Next Next Steps
+
+Although I have unsuccessful in my attempts to use spanish sentiment analysis, I now have a list of things that I know I need to do in order to perform sentiment analysis on my Spanish texts:
+
+In order to make this work I need to pull in a customized lexicon that assigns words to categories in Spanish.
+
+I also have a customized file that works for spanish words available here: 
+https://raw.githubusercontent.com/Dmedina117/EncodingEncounter/master/Spanishsentimentwords.txt
+
+The NRC Terms need to be assigned catagories. For now, thought, the list of Spanish NRC words lives here: https://raw.githubusercontent.com/Dmedina117/EncodingEncounter/master/SpanshNRCwords.txt
+
+One of the issues that I've noticed is the Unicode in my spanish lexicon. For example, if I am running something in a program that is not set up to recognize characters such as í, ñ, or é then any lexicon that includes these characters will "trip" up any programs net designed to read them as recognizable character strings.
+
+
+
+
+# Conclusion
+There are far too many things that I can say about the results from the code I ran. 
+But I also have to take into consideration the fact that this entire process relies upon a very subjective methodology. Because I have to go into a dictionary and assignn words to a category of my own creation my results will always been suspect to confirmation bias. But in either case a filter than can pull out certain words relies upon the existence of those words in the original text. So in that sense, at least, there are already a good deal of quantitative data to back up my qualitative data. 
+
+
+The NRC leixicon seems the most readily modifiable to help me sort words into the new category that I will create--the "Euologistic" catergory. Creating this filter, however, is no easy task. What words, for example, constitue eulogistic rhetoric? and futhermore, what words constitude euologistic rhetoric in 16th-19th century langauge? Right now, the questions are stacking up, and the best way to start dealing with some of these questions is to start thinking about some liberating constraints.
+
+##### Course Conclusion
+
+I learned a great deal from this course. reflecting upon the fact that in early January I knew nothing about R astounds me. This class has been an interesting plunge into the depth of DH. It has challenged me, pushed me, and given me a great deal to consider. 
+
+
+###Works Cited
+
+Gold, Matthew K, and Lauren F. Klein. Debates in the Digital Humanities 2016. , 2016.
+
+Ramsay, Stephen. Reading Machines: Toward an Algorithmic Criticism. , 2011.
+
+Schöch, Christof. Big? Smart? Clean? Messy? Data in the Humanities?, 2016
+
