@@ -32215,7 +32215,7 @@ decline	fear	0
 decline	joy	0
 decline	negative	1
 decline	positive	0
-decline	sadness	0
+decline	eulogistic	1
 decline	surprise	0
 decline	trust	0
 declining	anger	0
@@ -32225,7 +32225,7 @@ declining	fear	0
 declining	joy	0
 declining	negative	1
 declining	positive	0
-declining	sadness	0
+declining	eulogistic	1
 declining	surprise	0
 declining	trust	0
 decompose	anger	0
@@ -32305,7 +32305,7 @@ decrease	fear	0
 decrease	joy	0
 decrease	negative	1
 decrease	positive	0
-decrease	sadness	0
+decrease	eulogistic	1
 decrease	surprise	0
 decrease	trust	0
 decreased	anger	0
@@ -32315,7 +32315,7 @@ decreased	fear	0
 decreased	joy	0
 decreased	negative	0
 decreased	positive	0
-decreased	sadness	0
+decreased	eulogistic	1
 decreased	surprise	0
 decreased	trust	0
 decreasing	anger	0
@@ -32325,7 +32325,7 @@ decreasing	fear	0
 decreasing	joy	0
 decreasing	negative	0
 decreasing	positive	0
-decreasing	sadness	0
+decreasing	eulogistic	1
 decreasing	surprise	0
 decreasing	trust	0
 decree	anger	0
@@ -32895,7 +32895,7 @@ degradation	fear	0
 degradation	joy	0
 degradation	negative	1
 degradation	positive	0
-degradation	sadness	0
+degradation	eulogistic	1
 degradation	surprise	0
 degradation	trust	0
 degrade	anger	0
@@ -71350,8 +71350,8 @@ lament	surprise	0
 lamentable	trust	0
 lamentable	anger	0
 lamentable	anticipation	0
-lamentable	disgust	1
-lamentable	fear	1
+lamentable	disgust	0
+lamentable	fear	0
 lamentable	joy	0
 lamentable	negative	1
 lamentable	positive	0
