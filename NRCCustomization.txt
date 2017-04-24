@@ -41578,6 +41578,16 @@ elegant	positive	1
 elegant	sadness	0
 elegant	surprise	0
 elegant	trust	0
+elegy	anger	0
+elegy	anticipation	0
+elegy	disgust	0
+elegy	fear	0
+elegy	joy	0
+elegy	negative	0
+elegy	positive	0
+elegy	eulogistic	1
+elegy	surprise	0
+elegy	trust	0
 element	anger	0
 element	anticipation	0
 element	disgust	0
@@ -44735,7 +44745,7 @@ eulogy	fear	0
 eulogy	joy	0
 eulogy	negative	0
 eulogy	positive	0
-eulogy	sadness	0
+eulogy	eulogistic	1
 eulogy	surprise	0
 eulogy	trust	0
 euphemism	anger	0
