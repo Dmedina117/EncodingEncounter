@@ -25,7 +25,7 @@ abandon	fear	1
 abandon	joy	0
 abandon	negative	1
 abandon	positive	0
-abandon	sadness	1
+abandon	eulogistic	1
 abandon	surprise	0
 abandon	trust	0
 abandoned	anger	1
@@ -35,7 +35,7 @@ abandoned	fear	1
 abandoned	joy	0
 abandoned	negative	1
 abandoned	positive	0
-abandoned	sadness	1
+abandoned	eulogistic	1
 abandoned	surprise	0
 abandoned	trust	0
 abandonment	anger	1
@@ -45,7 +45,7 @@ abandonment	fear	1
 abandonment	joy	0
 abandonment	negative	1
 abandonment	positive	0
-abandonment	sadness	1
+abandonment	eulogistic	1
 abandonment	surprise	1
 abandonment	trust	0
 abate	anger	0
@@ -435,7 +435,7 @@ absence	fear	1
 absence	joy	0
 absence	negative	1
 absence	positive	0
-absence	sadness	1
+absence	eulogistic	1
 absence	surprise	0
 absence	trust	0
 absent	anger	0
@@ -445,7 +445,7 @@ absent	fear	0
 absent	joy	0
 absent	negative	1
 absent	positive	0
-absent	sadness	1
+absent	eulogistic	1
 absent	surprise	0
 absent	trust	0
 absentee	anger	0
